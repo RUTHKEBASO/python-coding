@@ -68,7 +68,7 @@ f=Fruits()
 f.taste()
 f.use()
 f.seed()
-f.size()"""
+f.size()
 
 
 #hierachical inheritance 
@@ -103,7 +103,46 @@ c.type()
 c.price()
 c.seats()
 c.model()
-c.number_of_wheels()                           
+c.number_of_wheels()"""
 
 
 
+
+#UML diagram
+class Employee():
+    def __init__(self,id,name):
+        self.id=id
+        self.name=name
+
+class SalaryEmployee(Employee):
+    def __init__(self,id,name,monthly_income):
+        super().__init__(id,name)
+        self.monthly_income=monthly_income
+
+    def calculate_payroll(self):
+        return self.monthly_income
+
+
+class HourlyEmployee(Employee):
+        def __init__(self,id,name,hours_worked,rate):
+            super().__init__(id,name)
+            self.hours_worked=hours_worked
+            self.rate=rate
+
+        def calculate_payroll(self):
+            return self.hours_worked*self.rate
+        
+
+class CommissionEmployee(SalaryEmployee):
+        def __init__(self,id,name,monthly_income,commission):
+          super().__init__(id,name,monthly_income)
+          self.commission=commission
+
+        def calculate_payroll(self):
+          fixed=super().calculate_payroll()
+          return fixed+self.commmission     
+
+
+
+
+           
